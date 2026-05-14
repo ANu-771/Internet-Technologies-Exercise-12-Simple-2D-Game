@@ -1,0 +1,135 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url('assets/darkRacebackground.jpg'); 
+    background-size: cover;
+    background-position: center;
+    background-color: #1a1a1a;
+    font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, sans-serif; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #1a472a;
+}
+
+#game-wrapper {
+    display: flex;
+    gap: 40px;
+    align-items: center; 
+}
+
+#ui-panel {
+    background: rgba(15, 15, 20, 0.5); /* Darker glass tint */
+    padding: 30px;
+    border-radius: 16px; 
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(9.2px);
+    -webkit-backdrop-filter: blur(9.2px);
+    border: 1px solid rgba(255, 255, 255, 0.15); 
+    width: 200px;
+    text-align: center;
+    order: 2; 
+    color: #ffffff; /* White text for the dark panel */
+}
+
+h1 { 
+    font-size: 22px; 
+    margin-top: 0; 
+    color: #ffffff; 
+}
+
+.stats { 
+    font-size: 18px; 
+    font-weight: bold; 
+    margin: 20px 0; 
+    color: #e0e0e0;
+}
+
+#instructions { 
+    font-size: 12px; 
+    margin-top: 20px; 
+    color: #aaaaaa; 
+}
+
+#start-btn {
+    background: rgba(255, 255, 255, 0.1); /* Transparent glass button */
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+}
+
+#start-btn:hover { 
+    background: rgba(0, 243, 255, 0.2); 
+    border-color: #00f3ff;
+    box-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
+    color: #ffffff; 
+}
+
+#game-area {
+    width: 570px;
+    height: 649px;
+    background-color: #333; 
+    background-image: url('assets/road.png'); 
+    background-repeat: repeat-y; 
+    background-size: cover;
+    border: 4px solid #00f3ff; 
+    box-shadow: 0 0 15px rgba(0, 243, 255, 0.6), inset 0 0 10px rgba(0, 243, 255, 0.4);
+    
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+    order: 1; 
+}
+
+.road-moving {
+    animation: scrollRoad 2s linear infinite;
+}
+
+@keyframes scrollRoad {
+    from { background-position: 0 0; }
+    to { background-position: 0 649px; } 
+}
+
+.car {
+    width: 110px; 
+    height: 120px;
+    position: absolute;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: left 0.15s ease-out; /* Smooth snap animation between lanes */
+}
+
+#player {
+    background-image: url('assets/playerCar.png'); 
+    z-index: 10;
+}
+
+.enemy {
+    background-image: url('assets/v1.png'); 
+}
+
+
+.glass-alert {
+    background: rgba(2, 2, 13, 0.09) !important;
+    border-radius: 16px !important;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1) !important;
+    backdrop-filter: blur(9.2px) !important;
+    -webkit-backdrop-filter: blur(9.2px) !important;
+    border: 1px solid rgba(2, 2, 13, 0.7) !important;
+}
+
+.glass-alert .swal2-title,
+.glass-alert .swal2-html-container {
+    color: #ffffff !important;
+}
+
+

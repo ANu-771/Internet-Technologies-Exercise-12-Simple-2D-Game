@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Realistic Traffic Racer</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <div id="game-wrapper">
+        <div id="ui-panel">
+            <h1>Traffic Racer</h1>
+            <div class="stats">
+                <p>Score: <span id="score">0</span></p>
+                <p>Level: <span id="level">1</span></p>
+                <p>High Score: <span id="high-score">0</span></p>
+            </div>
+            <button id="start-btn">PLAY GAME</button>
+            <p id="instructions">Tap ← → Arrow Keys to switch lanes.</p>
+        </div>
+
+        <div id="game-area">
+            <div id="player" class="car"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
