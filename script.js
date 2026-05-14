@@ -147,6 +147,50 @@ $(document).ready(function () {
         gameLoop = setInterval(updateFrame, 20);
     }
 
+    // function gameOver() {
+    //     gameState.isRunning = false;
+    //     clearInterval(gameLoop);
+    //     clearInterval(spawnLoop);
+        
+    //     $('#game-area').removeClass('road-moving');
+    //     $('#start-btn').text('PLAY AGAIN');
+
+    //     if (gameState.score > sessionHighScore) {
+    //         sessionHighScore = gameState.score;
+    //     }
+
+    //     Swal.fire({
+    //         title: "Game Over!",
+    //         html: `
+    //             <div style="font-size: 1.1em; margin-top: 10px;">
+    //                 <div><b>Score:</b> ${gameState.score}</div>
+    //                 <div><b>High Score:</b> ${sessionHighScore}</div>
+    //             </div>
+    //         `,
+            
+    //         imageUrl: "assets/explosion.png", 
+    //         imageWidth: 80,                   
+    //         imageHeight: 80,
+    //         imageAlt: "Crash Image",
+
+    //         draggable: true,
+    //         confirmButtonText: "Play Again",
+    //         confirmButtonColor: "#2e8b57",
+    //         allowOutsideClick: false,
+    //         heightAuto: false,
+
+    //         background: "transparent", 
+    //         customClass: {
+    //             popup: 'glass-alert'   
+    //         }
+
+    //     }).then((result) => {
+    //         if (result.isConfirmed) {
+    //             resetGame();
+    //         }
+    //     });
+    // }
+
     function gameOver() {
         gameState.isRunning = false;
         clearInterval(gameLoop);
@@ -159,17 +203,23 @@ $(document).ready(function () {
         if (gameState.score > sessionHighScore) {
             sessionHighScore = gameState.score;
             isNewHighScore = true;
-            $('#high-score').text(sessionHighScore);
+            $('#high-score').text(sessionHighScore); 
         }
 
         Swal.fire({
-            title: isNewHighScore && gameState.score > 0 ? "NEW HIGH SCORE!" : "CRASHED!",
+            title: isNewHighScore && gameState.score > 0 ? "NEW HIGH SCORE! 🏆" : "CRASHED!",
             html: `
-                <div style="font-size: 1.2em; margin-bottom: 10px;">Game Over!</div>
-                <div><b>Score:</b> ${gameState.score}</div>
-                <div><b>High Score:</b> ${sessionHighScore}</div>
+                <div style="font-size: 1.1em; margin-top: 10px;">
+                    <div><b>Score:</b> ${gameState.score}</div>
+                    <div><b>High Score:</b> ${sessionHighScore}</div>
+                </div>
             `,
-            icon: isNewHighScore && gameState.score > 0 ? "success" : "error",
+            
+            imageUrl: isNewHighScore && gameState.score > 0 ? "assets/trophy.png" : "assets/explosion.png",
+            imageWidth: 90,
+            imageHeight: 80,
+            imageAlt: isNewHighScore && gameState.score > 0 ? "Trophy Image" : "Crash Image",
+
             draggable: true,
             confirmButtonText: "Play Again",
             confirmButtonColor: "#2e8b57",
